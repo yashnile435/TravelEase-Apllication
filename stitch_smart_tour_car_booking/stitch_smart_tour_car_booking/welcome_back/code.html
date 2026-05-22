@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TravelEase - Login &amp; Sign Up</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "primary-fixed": "#dae2ff",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "on-primary-container": "#c4d2ff",
+                        "secondary-fixed-dim": "#ffb950",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "surface-dim": "#d9dadc",
+                        "surface-tint": "#0c56d0",
+                        "tertiary-fixed-dim": "#b4c6f3",
+                        "outline": "#737685",
+                        "surface-bright": "#f8f9fb",
+                        "on-tertiary-fixed": "#051a3e",
+                        "tertiary-fixed": "#d8e2ff",
+                        "tertiary-container": "#495a81",
+                        "secondary-container": "#feaa00",
+                        "inverse-surface": "#2e3132",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffddb3",
+                        "on-surface-variant": "#434654",
+                        "primary-container": "#0052cc",
+                        "secondary": "#825500",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-tertiary-container": "#c1d2ff",
+                        "tertiary": "#314368",
+                        "background": "#f8f9fb",
+                        "on-primary-fixed": "#001848",
+                        "surface-container": "#edeef0",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f3f4f6",
+                        "on-surface": "#191c1e",
+                        "on-background": "#191c1e",
+                        "on-secondary-fixed": "#291800",
+                        "on-secondary-container": "#684300",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-secondary-fixed-variant": "#624000",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e7e8ea",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#003d9b",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-tertiary-fixed-variant": "#35466c",
+                        "surface-variant": "#e1e2e4",
+                        "outline-variant": "#c3c6d6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "container-padding-mobile": "16px",
+                        "unit": "8px",
+                        "stack-md": "16px",
+                        "gutter": "16px",
+                        "container-padding-desktop": "24px",
+                        "section-gap": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .auth-transition {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- Auth Container -->
+<main class="min-h-screen flex items-center justify-center relative md:p-gutter">
+<!-- Animated Background Decoration -->
+<div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-primary-fixed opacity-20 rounded-full blur-[120px]"></div>
+<div class="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-secondary-fixed opacity-20 rounded-full blur-[120px]"></div>
+</div>
+<div class="w-full max-w-[1200px] h-full md:h-[800px] flex flex-col md:flex-row bg-surface-container-lowest rounded-none md:rounded-xl shadow-lg z-10 overflow-hidden border border-outline-variant/30">
+<!-- Left Panel: Brand & Imagery (Visible on Tablet/Desktop) -->
+<section class="hidden md:flex flex-1 relative flex-col justify-between p-stack-lg bg-inverse-surface text-inverse-on-surface overflow-hidden">
+<img alt="Travel Scene" class="absolute inset-0 w-full h-full object-cover opacity-60" data-alt="A cinematic, high-resolution wide shot of a serene alpine lake reflecting snow-capped mountain peaks at golden hour. The lighting is warm and natural, casting soft orange and pink hues across the sky. The visual style is premium and minimalist, emphasizing a sense of professional reliability and effortless exploration. Deep blues from the water contrast with the bright, glowing horizon, maintaining a clean and modern high-end travel aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyU-xDL1x5PxHnum0kJwJZLzN6PqgTiqpTlTILLq43o_QW2DZ3QPRrcsZpREvaAi01mPURU6e6rh9KbnHURk0uI7IYmwp0sCPYNHMPcghGMVK5_8Ox9AXEon5h7c1t6Q0wNWi-C7grD2jfSpyLA63qIG2Qm86U8yx9DtdSBZSPug3YvwJuEyEBQdmec4R8Gu3tkkQ-ifl6xiTF6N6v1Ns-H6ZVkl3wSka76TbwNS4QoD1OKY6-PWhe_eeVQx79hY4k_JYvHy71Hw"/>
+<div class="relative z-20 flex items-center gap-stack-sm">
+<span class="material-symbols-outlined text-[32px] text-primary-fixed">flight_takeoff</span>
+<span class="font-headline-md text-headline-md tracking-tight font-bold">TravelEase</span>
+</div>
+<div class="relative z-20">
+<h1 class="font-display-lg text-display-lg mb-stack-md leading-tight">Elevate your<br/>travel experience.</h1>
+<p class="font-body-lg text-body-lg text-surface-variant max-w-[400px]">Join thousands of discerning travelers who value clarity, speed, and premium utility in every journey.</p>
+</div>
+<div class="relative z-20 flex items-center gap-stack-md">
+<div class="flex -space-x-4">
+<img class="w-10 h-10 rounded-full border-2 border-inverse-surface" data-alt="Close-up portrait of a smiling woman in a professional yet relaxed outdoor setting, lit by soft morning sun, embodying a clean and modern high-end traveler lifestyle with warm tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7sh0dDUOO_L_7adPfHhMP55pqTFWVouWj34t92Jw1VPr1RYPLaaWMr392eF872xl0CxjBuk_kXLLv9P-rVEBM8AEzYuZuwgI4A9WNajz27SeAL_FusYmThLI32rFtRYtL1prK6y8uAvLMtn4Q0ADAs3qunG8JKez6bB1qSjIuj2qJFGDQXotE6RKWbkM9JMWz136LADYeui5XCX9UE3BFtBhsoQCSw089GBHpWe3kqakoAr6VNXohejZJRPe1x7-3fMALpvk3Kw"/>
+<img class="w-10 h-10 rounded-full border-2 border-inverse-surface" data-alt="Close-up portrait of a man looking confidently into the distance against a blurred urban architectural background, emphasizing professional reliability and modern travel sophistication in bright natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA1AKE13-bNm4Oqqig9dk1uOcldI2PUx6AAFStFlpFEjEc30IXThPSrh02NMfRl9-nOKV30XhwgH6rzdOIhfr01ClvYmI9rv30d6bAa6ZPV3_F_eVcD-Ykx-XY_ae1_znBoSbqn5w5WXjZuQe1NNe2P24j3wmWgJQp6C_yH_StgMPeSn6pm2fSNmwd9kkKwz9-ZMV_e4SaE9g9IRyafhYhRcsEPyzXsoH0ndygXp9DBxp27c0ztkspaId7A-mZaMbfcZKML4GVTg"/>
+<img class="w-10 h-10 rounded-full border-2 border-inverse-surface" data-alt="Natural portrait of a traveler with a clean minimalist background, soft focus, and warm ambient lighting that suggests a serene and premium travel experience consistent with a modern corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8pBVPPz2SgRz9ZtZVmmfqXM8rjwpSq2exHFuFqfTrSJhlBqfYqfmjB7rTzIC1VhlcJ8sqqXVi8AJ6D78orkPqAPZtM2U5PZekcPw5BXfOoyf4vIJd8QHgcQugCP0HRVZ6m_05EEIPORcXjmRSS4byI51sjPplbtQpn4C_dOnpv3zAiTWY8m_hZc9j64qNW3ZkIwt6n8W-CmD9-1SEA8c6FGdHgyNhFmwuEm-5KOwSxBPWZDxNOHwhi_0lQTiD4O8XCLDSPNGATg"/>
+</div>
+<span class="font-label-md text-label-md">Trusted by 50k+ globetrotters</span>
+</div>
+</section>
+<!-- Right Panel: Auth Forms -->
+<section class="flex-1 p-container-padding-mobile md:p-stack-lg flex flex-col justify-center items-center bg-surface-container-lowest">
+<!-- Logo for Mobile -->
+<div class="md:hidden flex items-center gap-stack-sm mb-stack-lg self-start">
+<span class="material-symbols-outlined text-[28px] text-primary">flight_takeoff</span>
+<span class="font-headline-md text-headline-md tracking-tight font-bold text-primary">TravelEase</span>
+</div>
+<!-- Form Header -->
+<div class="w-full max-w-[400px] mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2" id="form-title">Welcome Back</h2>
+<p class="font-body-md text-body-md text-on-surface-variant" id="form-subtitle">Please enter your details to access your dashboard.</p>
+</div>
+<!-- Main Form -->
+<form class="w-full max-w-[400px] flex flex-col gap-stack-md" id="auth-form">
+<!-- Signup Only Field -->
+<div class="hidden auth-transition" id="name-field">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-stack-sm" for="name">Full Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">person</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-body-md" id="name" placeholder="John Doe" type="text"/>
+</div>
+</div>
+<!-- Common Fields -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-stack-sm" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">mail</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-body-md" id="email" placeholder="email@example.com" required="" type="email"/>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-stack-sm" for="password">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">lock</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-body-md" id="password" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<!-- Login Only Link -->
+<div class="flex justify-end" id="forgot-link">
+<a class="font-label-md text-label-md text-primary hover:underline transition-all" href="#">Forgot Password?</a>
+</div>
+<!-- CTA Button -->
+<button class="w-full mt-stack-md py-4 bg-primary text-on-primary font-headline-sm rounded-lg shadow-md hover:bg-primary/90 active:scale-[0.98] transition-all flex justify-center items-center gap-2" id="submit-btn" type="submit">
+<span id="btn-text">Sign In</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<!-- Divider -->
+<div class="flex items-center gap-4 my-stack-sm">
+<div class="flex-1 h-[1px] bg-outline-variant"></div>
+<span class="font-label-sm text-label-sm text-outline">OR CONTINUE WITH</span>
+<div class="flex-1 h-[1px] bg-outline-variant"></div>
+</div>
+<!-- Social Logins -->
+<div class="flex gap-stack-md">
+<button class="flex-1 flex items-center justify-center gap-2 py-3 bg-surface border border-outline-variant rounded-lg hover:bg-surface-container-high transition-all" type="button">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmrCvkPadlClsFebPKlWS8fQuy5xlLsfacxCiGocyTDpfl4eOuKNWpNQ1xZf-lXk4evfVT8v69qstZ7iCWLeeOdJl0sb_qK8YNcukhx9J80wL9g8d5dI2R2giIa-skxhOfhf0gc1atzfxH09g0O8PVInqMn9KP1PLheQTnXz7WW4vj2qO0bVuLB7edJaiuBk7AgmLpN5nmddjhCUrdC8TbJ1s_eAiR3Kdft1VApDKkSCuTLox2VmAjD9Ki7i548loE1RTyhHhJgg"/>
+<span class="font-label-md text-label-md">Google</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 py-3 bg-surface border border-outline-variant rounded-lg hover:bg-surface-container-high transition-all" type="button">
+<span class="material-symbols-outlined text-on-surface" style="font-variation-settings: 'FILL' 1;">ios</span>
+<span class="font-label-md text-label-md">Apple</span>
+</button>
+</div>
+</form>
+<!-- Footer Switch -->
+<div class="mt-stack-lg text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="switch-prompt">
+                        Don't have an account? 
+                        <button class="font-label-md text-label-md text-primary hover:underline ml-1" id="toggle-auth">Create Account</button>
+</p>
+</div>
+</section>
+</div>
+</main>
+<script>
+        const nameField = document.getElementById('name-field');
+        const forgotLink = document.getElementById('forgot-link');
+        const btnText = document.getElementById('btn-text');
+        const formTitle = document.getElementById('form-title');
+        const formSubtitle = document.getElementById('form-subtitle');
+        const switchPrompt = document.getElementById('switch-prompt');
+        const toggleBtn = document.getElementById('toggle-auth');
+        const authForm = document.getElementById('auth-form');
+
+        let isLogin = true;
+
+        toggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            isLogin = !isLogin;
+
+            if (isLogin) {
+                // Switch to Login UI
+                nameField.classList.add('hidden');
+                forgotLink.classList.remove('hidden');
+                btnText.textContent = 'Sign In';
+                formTitle.textContent = 'Welcome Back';
+                formSubtitle.textContent = 'Please enter your details to access your dashboard.';
+                switchPrompt.innerHTML = `Don't have an account? <button id="toggle-auth" class="font-label-md text-label-md text-primary hover:underline ml-1">Create Account</button>`;
+            } else {
+                // Switch to Sign Up UI
+                nameField.classList.remove('hidden');
+                forgotLink.classList.add('hidden');
+                btnText.textContent = 'Get Started';
+                formTitle.textContent = 'Create Account';
+                formSubtitle.textContent = 'Join TravelEase and start your premium journey today.';
+                switchPrompt.innerHTML = `Already have an account? <button id="toggle-auth" class="font-label-md text-label-md text-primary hover:underline ml-1">Sign In</button>`;
+            }
+            
+            // Re-attach listener because innerHTML wipes it
+            document.getElementById('toggle-auth').addEventListener('click', (ev) => {
+                ev.preventDefault();
+                toggleBtn.click();
+            });
+        });
+
+        authForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = document.getElementById('submit-btn');
+            const originalContent = submitBtn.innerHTML;
+            
+            // Micro-interaction: Loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<span class="material-symbols-outlined animate-spin">progress_activity</span> Processing...`;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = `<span class="material-symbols-outlined">check_circle</span> Success`;
+                submitBtn.classList.replace('bg-primary', 'bg-secondary-container');
+                submitBtn.classList.add('text-on-secondary-container');
+                
+                setTimeout(() => {
+                    // Reset for demo purposes
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalContent;
+                    submitBtn.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+                    submitBtn.classList.add('bg-primary');
+                }, 2000);
+            }, 1500);
+        });
+    </script>
+</body></html>

@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Custom Custom Material 3 Header & Toolbar -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="4dp"
+            app:strokeWidth="0dp"
+            app:cardBackgroundColor="@color/primary_blue">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="20dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Admin Workspace"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Overview &amp; Control Center"
+                        android:textColor="#D0E0FF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/btnAdminLogout"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_profile"
+                    app:tint="@color/white"
+                    android:contentDescription="Log Out" />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Horizontal Scroll Category Tab Switchers -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:background="?attr/colorSurface"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Tab 1: Dashboard -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/tabOverviewBtn"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dashboard"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/primary_blue"
+                    app:cornerRadius="20dp"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- Tab 2: Users -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/tabUsersBtn"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Users"
+                    android:textColor="@color/text_primary_light"
+                    android:backgroundTint="#F0F2F5"
+                    app:cornerRadius="20dp"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- Tab 3: Rides -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/tabDestinationsBtn"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rides"
+                    android:textColor="@color/text_primary_light"
+                    android:backgroundTint="#F0F2F5"
+                    app:cornerRadius="20dp"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- Tab 4: Bookings -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/tabBookingsBtn"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bookings"
+                    android:textColor="@color/text_primary_light"
+                    android:backgroundTint="#F0F2F5"
+                    app:cornerRadius="20dp" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Main Content Area Panels -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- PANEL 1: DASHBOARD OVERVIEW -->
+            <ScrollView
+                android:id="@+id/panelOverview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Grid of Stats Cards -->
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="2"
+                        android:rowCount="2"
+                        android:alignmentMode="alignMargins"
+                        android:columnOrderPreserved="false">
+
+                        <!-- Stat Card 1: Users -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="0dp"
+                            android:layout_height="100dp"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_margin="8dp"
+                            app:cardCornerRadius="16dp"
+                            app:strokeWidth="0dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardElevation="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center_vertical"
+                                android:padding="16dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Total Users"
+                                    android:textColor="@color/text_secondary_light"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvStatUsers"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="@color/primary_blue"
+                                    android:textSize="28sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="4dp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Stat Card 2: Bookings -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="0dp"
+                            android:layout_height="100dp"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:layout_margin="8dp"
+                            app:cardCornerRadius="16dp"
+                            app:strokeWidth="0dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardElevation="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center_vertical"
+                                android:padding="16dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Bookings"
+                                    android:textColor="@color/text_secondary_light"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvStatBookings"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="@color/accent_orange"
+                                    android:textSize="28sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="4dp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Stat Card 3: Rides -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="0dp"
+                            android:layout_height="100dp"
+                            android:layout_columnSpan="2"
+                            android:layout_columnWeight="2"
+                            android:layout_rowWeight="1"
+                            android:layout_margin="8dp"
+                            app:cardCornerRadius="16dp"
+                            app:strokeWidth="0dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardElevation="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center_vertical"
+                                android:padding="16dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Rides"
+                                    android:textColor="@color/text_secondary_light"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvStatDestinations"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="@color/success"
+                                    android:textSize="28sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="4dp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </GridLayout>
+
+                    <!-- Overview Summary Section -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Quick Actions"
+                        android:textColor="@color/text_primary_light"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- Quick Action Buttons -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="16dp"
+                        app:strokeWidth="0dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="2dp"
+                        android:layout_marginBottom="30dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/actionAddDestination"
+                                style="@style/Widget.MaterialComponents.Button.TextButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                android:text="Add Ride"
+                                android:gravity="start|center_vertical"
+                                android:textColor="@color/primary_blue"
+                                app:icon="@drawable/ic_add"
+                                app:iconTint="@color/primary_blue" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#F0F2F5" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/actionViewBookings"
+                                style="@style/Widget.MaterialComponents.Button.TextButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                android:text="Manage System Bookings"
+                                android:gravity="start|center_vertical"
+                                android:textColor="@color/text_primary_light"
+                                app:icon="@drawable/ic_booking"
+                                app:iconTint="@color/text_secondary_light" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#F0F2F5" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/actionViewUsers"
+                                style="@style/Widget.MaterialComponents.Button.TextButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                android:text="Manage User Roles"
+                                android:gravity="start|center_vertical"
+                                android:textColor="@color/text_primary_light"
+                                app:icon="@drawable/ic_profile"
+                                app:iconTint="@color/text_secondary_light" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+            <!-- PANEL 2: MANAGE USERS -->
+            <LinearLayout
+                android:id="@+id/panelUsers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+
+                <!-- User Search Layout -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/userSearchInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_search"
+                    app:boxStrokeColor="@color/primary_blue"
+                    app:hintTextColor="@color/primary_blue"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_marginBottom="12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/searchUsersEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Search users by name, email or phone..."
+                        android:inputType="text"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Users List RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvUsers"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingBottom="20dp" />
+
+            </LinearLayout>
+
+            <!-- PANEL 3: MANAGE DESTINATIONS -->
+            <RelativeLayout
+                android:id="@+id/panelDestinations"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <!-- Destinations List RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDestinations"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:padding="16dp"
+                    android:paddingBottom="80dp" />
+
+                <!-- FAB to Add New Ride -->
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabAddDestination"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="24dp"
+                    android:src="@drawable/ic_add"
+                    app:tint="@color/white"
+                    app:fabSize="normal"
+                    android:backgroundTint="@color/primary_blue"
+                    android:contentDescription="Add Ride" />
+
+            </RelativeLayout>
+
+            <!-- PANEL 4: MANAGE BOOKINGS -->
+            <LinearLayout
+                android:id="@+id/panelBookings"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+
+                <!-- Bookings List RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvBookings"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingBottom="20dp" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- LOADING OVERLAY -->
+    <RelativeLayout
+        android:id="@+id/adminLoadingOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#A0000000"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/edit_text_bg"
+            android:backgroundTint="?attr/colorSurface"
+            android:padding="32dp"
+            android:elevation="8dp">
+
+            <ProgressBar
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:indeterminateTint="@color/primary_blue" />
+
+            <TextView
+                android:id="@+id/adminLoadingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Processing action..."
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Colors -->
+    <color name="primary_blue">#0F52BA</color>
+    <color name="primary_blue_dark">#0A3982</color>
+    <color name="primary_blue_light">#E6F0FA</color>
+    <color name="accent_orange">#FEAA00</color>
+    <color name="accent_orange_light">#FFF5E6</color>
+    
+    <!-- Adapter & Component Mappings -->
+    <color name="primary">#0F52BA</color>
+    <color name="primary_light_bg">#E6F0FA</color>
+    <color name="text_medium">#64748B</color>
+    <color name="surface_container_high">#EAECEF</color>
+    <color name="success">#10B981</color>
+    <color name="error">#EF4444</color>
+    
+    <!-- Accent Helpers -->
+    <color name="accent_green">#10B981</color>
+    <color name="accent_green_light">#D1FAE5</color>
+    <color name="accent_red">#EF4444</color>
+    <color name="accent_red_light">#FEE2E2</color>
+    
+    <!-- Neutral Colors Light -->
+    <color name="bg_light">#F4F6FA</color>
+    <color name="card_light">#FFFFFF</color>
+    <color name="text_primary_light">#1E293B</color>
+    <color name="text_secondary_light">#64748B</color>
+    <color name="divider_light">#E2E8F0</color>
+    
+    <!-- Neutral Colors Dark -->
+    <color name="bg_dark">#0B0F19</color>
+    <color name="card_dark">#182232</color>
+    <color name="text_primary_dark">#F1F5F9</color>
+    <color name="text_secondary_dark">#94A3B8</color>
+    <color name="divider_dark">#2A374A</color>
+    
+    <!-- Basic Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    
+    <!-- Shimmer Colors -->
+    <color name="shimmer_color">#E2E8F0</color>
+    <color name="shimmer_color_dark">#2A374A</color>
+</resources>

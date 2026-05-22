@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <!-- Glowing accent gradient or circle in the background -->
+    <View
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/placeholder_vehicle"
+        android:alpha="0.05" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- TravelEase Logo -->
+        <ImageView
+            android:id="@+id/splashLogo"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/app_name" />
+
+        <!-- App Branding Name -->
+        <TextView
+            android:id="@+id/splashAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:letterSpacing="0.05"
+            android:layout_marginTop="16dp" />
+
+        <!-- App Tagline -->
+        <TextView
+            android:id="@+id/splashTagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your happiness is our moto"
+            android:textSize="14sp"
+            android:textColor="@color/text_secondary_dark"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <!-- Bottom Loading Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp">
+
+        <ProgressBar
+            android:id="@+id/splashProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:progressTint="@color/accent_orange"
+            android:trackTint="#10FFFFFF"
+            android:indeterminate="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading premium fleet..."
+            android:textColor="@color/text_secondary_dark"
+            android:textSize="12sp"
+            android:layout_marginTop="12dp" />
+    </LinearLayout>
+
+    <!-- Developer Branding Footer -->
+    <TextView
+        android:id="@+id/developerBrandingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:text="@string/splash_developed_by"
+        android:textColor="@color/text_secondary_dark"
+        android:textSize="11sp"
+        android:textStyle="normal"
+        android:alpha="0.6"
+        android:letterSpacing="0.05" />
+</RelativeLayout>

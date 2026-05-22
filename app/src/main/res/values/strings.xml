@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">TravelEase</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">Explore Premium Fleet</string>
+    <string name="onboarding_desc_1">Select from our elite collection of luxury, electric, and sports vehicles customized for your maximum comfort.</string>
+    <string name="onboarding_title_2">Seamless Quick Booking</string>
+    <string name="onboarding_desc_2">Reserve your dream ride in seconds with secure digital checkouts, transparent pricing, and instant approval.</string>
+
+    <string name="onboarding_btn_next">Next</string>
+    <string name="onboarding_btn_skip">Skip</string>
+    <string name="onboarding_btn_finish">Get Started</string>
+
+    <!-- Authentication -->
+    <string name="auth_welcome">Welcome to TravelEase</string>
+    <string name="auth_welcome_sub">Sign in to unlock exclusive luxury travel options</string>
+    <string name="auth_email_hint">Email Address</string>
+    <string name="auth_password_hint">Password</string>
+    <string name="auth_confirm_password_hint">Confirm Password</string>
+    <string name="auth_name_hint">Full Name</string>
+    <string name="auth_phone_hint">Phone Number</string>
+    <string name="auth_btn_login">Sign In</string>
+    <string name="auth_btn_register">Create Account</string>
+    <string name="auth_forgot_password">Forgot Password?</string>
+    <string name="auth_or_continue_with">Or continue with</string>
+    <string name="auth_google_sign_in">Sign in with Google</string>
+    <string name="auth_dont_have_account">Don\'t have an account? Sign Up</string>
+    <string name="auth_already_have_account">Already have an account? Sign In</string>
+    <string name="auth_reset_title">Reset Password</string>
+    <string name="auth_reset_desc">Enter your email and we will send you a reset link.</string>
+    <string name="auth_btn_reset">Send Reset Link</string>
+    <string name="auth_back_to_login">Back to Sign In</string>
+
+    <!-- Main Navigation & Dashboard -->
+    <string name="nav_explore">Explore</string>
+    <string name="nav_bookings">Bookings</string>
+
+    <string name="nav_profile">Profile</string>
+    
+    <string name="explore_search_hint">Search luxury cars, SUVs, EVs...</string>
+    <string name="explore_popular_cars">Popular Vehicles</string>
+    <string name="explore_all_categories">Categories</string>
+    <string name="explore_no_vehicles">No vehicles found. Try resetting filters.</string>
+    
+    <!-- Vehicle Detail -->
+    <string name="detail_specs">Specifications</string>
+    <string name="detail_about">About this Vehicle</string>
+    <string name="detail_seats_suffix">%s Seats</string>
+    <string name="detail_price_per_day">₹%s/km</string>
+    <string name="detail_btn_book">Book Now</string>
+    <string name="detail_reviews">%1$s Rating (%2$s Reviews)</string>
+
+    <!-- Booking Flow -->
+    <string name="booking_title">Confirm Booking</string>
+    <string name="booking_pickup_date">Pickup Date</string>
+    <string name="booking_return_date">Return Date</string>
+    <string name="booking_summary">Price Summary</string>
+    <string name="booking_days">%s Days</string>
+    <string name="booking_rental_cost">Rental Cost</string>
+    <string name="booking_insurance">Premium Insurance</string>
+    <string name="booking_tax">Taxes &amp; Service Fees</string>
+    <string name="booking_total">Total Amount</string>
+    <string name="booking_method">Booking Method</string>
+    <string name="booking_confirm">Confirm Booking</string>
+    <string name="booking_success_msg">Your booking has been confirmed successfully!</string>
+    
+
+
+    <!-- Profile -->
+    <string name="profile_edit_title">Edit Profile</string>
+    <string name="profile_btn_save">Save Changes</string>
+    <string name="profile_btn_logout">Log Out</string>
+    <string name="profile_admin_panel">Admin Console</string>
+    <string name="profile_trips_booked">Trips Booked</string>
+    <string name="profile_favorites_saved">Favorites</string>
+    
+    <!-- Admin Dashboard -->
+    <string name="admin_title">Admin Management</string>
+    <string name="admin_add_vehicle">Add New Vehicle</string>
+    <string name="admin_field_name">Vehicle Name</string>
+    <string name="admin_field_brand">Brand</string>
+    <string name="admin_field_price">Price per Km (₹)</string>
+    <string name="admin_field_seats">Seats Count</string>
+    <string name="admin_field_transmission">Transmission (Automatic/Manual)</string>
+    <string name="admin_field_fuel">Fuel Type (Electric/Hybrid/Petrol)</string>
+    <string name="admin_field_image">Image URL</string>
+    <string name="admin_field_category">Category (Luxury/SUV/Electric/Sport)</string>
+    <string name="admin_field_description">Description</string>
+    <string name="admin_btn_save">Add Vehicle</string>
+    
+    <!-- Validation Errors -->
+    <string name="err_empty_fields">Please fill all fields.</string>
+    <string name="err_invalid_email">Please enter a valid email address.</string>
+    <string name="err_password_length">Password must be at least 6 characters.</string>
+    <string name="err_passwords_dont_match">Passwords do not match.</string>
+    <string name="err_generic">An error occurred. Please try again.</string>
+    <string name="err_no_network">No Internet connection available. Working offline.</string>
+    <string name="splash_developed_by">Developed by YK Enterprises</string>
+</resources>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TravelEase | Premium SUV Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "primary-fixed": "#dae2ff",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "on-primary-container": "#c4d2ff",
+                        "secondary-fixed-dim": "#ffb950",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "surface-dim": "#d9dadc",
+                        "surface-tint": "#0c56d0",
+                        "tertiary-fixed-dim": "#b4c6f3",
+                        "outline": "#737685",
+                        "surface-bright": "#f8f9fb",
+                        "on-tertiary-fixed": "#051a3e",
+                        "tertiary-fixed": "#d8e2ff",
+                        "tertiary-container": "#495a81",
+                        "secondary-container": "#feaa00",
+                        "inverse-surface": "#2e3132",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffddb3",
+                        "on-surface-variant": "#434654",
+                        "primary-container": "#0052cc",
+                        "secondary": "#825500",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-tertiary-container": "#c1d2ff",
+                        "tertiary": "#314368",
+                        "background": "#f8f9fb",
+                        "on-primary-fixed": "#001848",
+                        "surface-container": "#edeef0",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f3f4f6",
+                        "on-surface": "#191c1e",
+                        "on-background": "#191c1e",
+                        "on-secondary-fixed": "#291800",
+                        "on-secondary-container": "#684300",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-secondary-fixed-variant": "#624000",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e7e8ea",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#003d9b",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-tertiary-fixed-variant": "#35466c",
+                        "surface-variant": "#e1e2e4",
+                        "outline-variant": "#c3c6d6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "container-padding-mobile": "16px",
+                        "unit": "8px",
+                        "stack-md": "16px",
+                        "gutter": "16px",
+                        "container-padding-desktop": "24px",
+                        "section-gap": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.6) 100%);
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-container-padding-mobile md:px-container-padding-desktop sticky top-0 z-50 bg-surface border-b border-outline-variant h-16">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-high transition-colors p-2 rounded-full">arrow_back</button>
+<span class="text-headline-md font-headline-md font-bold text-primary">TravelEase</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full">share</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full">favorite</button>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto">
+<!-- Hero Section -->
+<section class="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden">
+<img alt="Premium Black SUV" class="w-full h-full object-cover" data-alt="A high-end, luxury black SUV parked on a sleek, modern driveway in front of a contemporary architectural home with glass walls. The lighting is warm golden hour, highlighting the car's metallic finish and sophisticated curves. The scene reflects a modern premium utility aesthetic with clean lines, high-key lighting, and a serene, professional atmosphere typical of a luxury travel brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqkfYGUFJX2OCcd3LJGS1bGpwMnybLG5KFXAJ6Rmn10poSLEb0obYmyGjuFhKwKHrP0FW2rf15QTm7WYGXkb-x4NvjrbEIQDV-PrBS0AIOQcZxwAVLs2hOgxDrsi_ikwEzHrNqi52nx2xI_kWuLYTZGQ7OUoG8RUMkRWrSEn7u1DpJHQ8jonrbTVSOIHSEsSHu0yXEp0hGfCZCUysTDO7Z8i4aJ-7WUV2MQ_a74ROSDadjRILYcm0MF2XOu-QFB4Znd-VwbG2nWA"/>
+<div class="absolute inset-0 hero-gradient pointer-events-none"></div>
+<div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+<div class="text-white">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg">Lumina Grand Explorer 2024</h1>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md">4.9 (124 reviews)</span>
+</div>
+</div>
+<div class="hidden md:flex gap-2">
+<span class="bg-surface-container-lowest/20 backdrop-blur-md px-4 py-2 rounded-full text-white font-label-md text-label-md border border-white/20">Elite Tier</span>
+</div>
+</div>
+</section>
+<!-- Content Grid -->
+<div class="px-container-padding-mobile md:px-container-padding-desktop mt-stack-lg grid grid-cols-1 md:grid-cols-12 gap-stack-lg">
+<!-- Left Column: Specs & Features -->
+<div class="md:col-span-8 space-y-stack-lg">
+<!-- Quick Specs Bento Grid -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm border border-outline-variant flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2 text-3xl">local_gas_station</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Fuel Type</span>
+<span class="text-on-surface font-label-md text-label-md">Hybrid Turbo</span>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm border border-outline-variant flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2 text-3xl">event_seat</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Capacity</span>
+<span class="text-on-surface font-label-md text-label-md">7 Seats</span>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm border border-outline-variant flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2 text-3xl">settings_input_component</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Transmission</span>
+<span class="text-on-surface font-label-md text-label-md">Automatic 9-Spd</span>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm border border-outline-variant flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2 text-3xl">speed</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">0-100 km/h</span>
+<span class="text-on-surface font-label-md text-label-md">5.2 Seconds</span>
+</div>
+</div>
+<!-- Car Features Section -->
+<section>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-stack-md">Premium Features</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex items-start gap-3 p-4 bg-surface-container-low rounded-lg transition-all hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-primary">distance</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Adaptive Cruise Control</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Intelligent speed matching for highway driving.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-4 bg-surface-container-low rounded-lg transition-all hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-primary">surround_sound</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Bose 360 Audio</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">14-speaker immersive studio experience.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-4 bg-surface-container-low rounded-lg transition-all hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-primary">ac_unit</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Tri-Zone Climate</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Independent controls for all passengers.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-4 bg-surface-container-low rounded-lg transition-all hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-primary">visibility</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Night Vision Assist</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Infrared thermal imaging for nocturnal safety.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Description -->
+<section>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-stack-md">Vehicle Description</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        The Lumina Grand Explorer 2024 redefines the premium SUV segment with its unparalleled blend of performance, technology, and sheer comfort. Designed for the discerning traveler, it features a handcrafted interior with sustainable vegan leather and authentic wood accents. Whether navigating urban landscapes or exploring off-road trails, the intelligent AWD system ensures maximum stability and poise. Experience the pinnacle of modern utility where every detail is engineered for your effortless journey.
+                    </p>
+</section>
+</div>
+<!-- Right Column: Sidebar (Visible on Desktop) -->
+<aside class="hidden md:block md:col-span-4">
+<div class="sticky top-24 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-lg">
+<div class="flex justify-between items-center mb-6">
+<div>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Daily Rental</p>
+<p class="text-headline-md font-headline-md text-primary">$189.00</p>
+</div>
+<div class="bg-secondary-fixed text-on-secondary-fixed px-3 py-1 rounded-full font-label-md text-label-md">
+                            Best Value
+                        </div>
+</div>
+<div class="space-y-4 mb-6">
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Service Fee</span>
+<span>$12.50</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Insurance (Premium)</span>
+<span>$25.00</span>
+</div>
+<hr class="border-outline-variant"/>
+<div class="flex justify-between font-headline-sm text-headline-sm text-on-surface">
+<span>Total</span>
+<span>$226.50</span>
+</div>
+</div>
+<button class="w-full bg-secondary-container text-on-secondary-container font-headline-sm text-headline-sm py-4 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-md">
+                        Reserve Now
+                    </button>
+<p class="text-center mt-4 font-label-sm text-label-sm text-on-surface-variant">
+                        Free cancellation until 24h before pickup.
+                    </p>
+</div>
+</aside>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface-container-lowest shadow-lg md:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-label-sm font-label-sm">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="text-label-sm font-label-sm">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-95" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-label-sm font-label-sm">Track</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Fixed CTA Button (Mobile Only) -->
+<div class="fixed bottom-[72px] left-0 right-0 p-4 bg-surface/80 backdrop-blur-lg border-t border-outline-variant md:hidden">
+<div class="flex items-center justify-between gap-4 max-w-md mx-auto">
+<div>
+<span class="text-headline-sm font-headline-sm text-on-surface">$189</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm"> / day</span>
+</div>
+<button class="flex-1 bg-secondary-container text-on-secondary-container font-label-md text-label-md py-4 px-6 rounded-full shadow-lg active:scale-95 transition-transform">
+                Book Now
+            </button>
+</div>
+</div>
+<script>
+        // Simple micro-interaction for the "favorite" button
+        const favBtn = document.querySelectorAll('.material-symbols-outlined')[2]; // Targeting favorite icon
+        if(favBtn && favBtn.textContent === 'favorite') {
+            favBtn.addEventListener('click', () => {
+                const isFilled = favBtn.style.fontVariationSettings.includes("'FILL' 1");
+                favBtn.style.fontVariationSettings = `'FILL' ${isFilled ? 0 : 1}, 'wght' 400, 'GRAD' 0, 'opsz' 24`;
+                favBtn.style.color = isFilled ? '' : 'var(--error)';
+            });
+        }
+    </script>
+</body></html>

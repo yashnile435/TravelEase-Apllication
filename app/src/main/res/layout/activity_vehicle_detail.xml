@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/android:windowBackground">
+
+    <!-- Scrollable Content Area -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomBarLayout"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Hero Image Header with Overlays -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:background="#0F000000">
+
+                <ImageView
+                    android:id="@+id/vehicleImageDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@null"
+                    android:src="@drawable/placeholder_vehicle" />
+
+                <!-- Transparent Gradient overlay -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_gravity="bottom"
+                    android:background="@android:color/transparent" />
+
+                <!-- Custom Header Controls -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
+
+                    <!-- Back Button Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/btnBack"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="4dp"
+                        app:strokeWidth="0dp"
+                        app:cardBackgroundColor="?attr/colorSurface">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_arrow_back"
+                            app:tint="?android:attr/textColorPrimary"
+                            android:contentDescription="@null" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Favorite Button Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/btnFavDetail"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentEnd="true"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="4dp"
+                        app:strokeWidth="0dp"
+                        app:cardBackgroundColor="?attr/colorSurface">
+
+                        <ImageView
+                            android:id="@+id/favImageDetail"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_favorite_outline"
+                            android:contentDescription="@null" />
+                    </com.google.android.material.card.MaterialCardView>
+                </RelativeLayout>
+            </FrameLayout>
+
+            <!-- Specification Bento Details -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:background="?attr/android:windowBackground">
+
+                <!-- Vehicle Brand Category Tag -->
+                <TextView
+                    android:id="@+id/detailBrand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MERCEDES-BENZ"
+                    android:textColor="@color/accent_orange"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1" />
+
+                <!-- Name & Star Rating -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:id="@+id/detailName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="S-Class Luxury Sedan"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@id/detailRatingLayout" />
+
+                    <!-- Rating -->
+                    <LinearLayout
+                        android:id="@+id/detailRatingLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_star"
+                            android:contentDescription="@null" />
+
+                        <TextView
+                            android:id="@+id/detailRating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4.9"
+                            android:textColor="@color/accent_orange"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:layout_marginStart="4dp" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <!-- Bento Spec cards row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="24dp"
+                    android:weightSum="3">
+
+                    <!-- Seats Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardSeats"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        app:cardCornerRadius="16dp"
+                        app:strokeWidth="0dp"
+                        app:cardBackgroundColor="?attr/colorSurface">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_seats"
+                                app:tint="@color/primary_blue"
+                                android:contentDescription="@null" />
+
+                            <TextView
+                                android:id="@+id/detailSeats"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="5 Seats"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:textColor="?android:attr/textColorPrimary"
+                                android:layout_marginTop="8dp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Transmission Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardTransmission"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="6dp"
+                        app:cardCornerRadius="16dp"
+                        app:strokeWidth="0dp"
+                        app:cardBackgroundColor="?attr/colorSurface">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_transmission"
+                                app:tint="@color/primary_blue"
+                                android:contentDescription="@null" />
+
+                            <TextView
+                                android:id="@+id/detailTransmission"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Automatic"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:textColor="?android:attr/textColorPrimary"
+                                android:layout_marginTop="8dp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Fuel Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardFuel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        app:cardCornerRadius="16dp"
+                        app:strokeWidth="0dp"
+                        app:cardBackgroundColor="?attr/colorSurface">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_fuel"
+                                app:tint="@color/primary_blue"
+                                android:contentDescription="@null" />
+
+                            <TextView
+                                android:id="@+id/detailFuel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Petrol"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:textColor="?android:attr/textColorPrimary"
+                                android:layout_marginTop="8dp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <!-- Description Heading -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_about"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Description content -->
+                <TextView
+                    android:id="@+id/detailDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Experience premium comfort and power in our flagship sedan, packed with modern assistance technologies and a gorgeous leather interior."
+                    android:textSize="14sp"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:lineSpacingMultiplier="1.3"
+                    android:layout_marginBottom="32dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Pricing / Checkout bar -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottomBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="12dp"
+        app:strokeWidth="0dp"
+        app:cardBackgroundColor="?attr/colorSurface">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <!-- Pricing Tag -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/detailPriceText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹120/km"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_blue" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Inclusive of taxes"
+                    android:textSize="11sp"
+                    android:textColor="?android:attr/textColorSecondary" />
+            </LinearLayout>
+
+            <!-- Checkout CTA -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBookNow"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_centerVertical="true"
+                android:text="@string/detail_btn_book"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                app:cornerRadius="12dp"
+                android:backgroundTint="@color/primary_blue"
+                android:textColor="@color/white"
+                app:rippleColor="#40FFFFFF"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</RelativeLayout>

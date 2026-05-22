@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TravelEase - Live Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "primary-fixed": "#dae2ff",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "on-primary-container": "#c4d2ff",
+                        "secondary-fixed-dim": "#ffb950",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "surface-dim": "#d9dadc",
+                        "surface-tint": "#0c56d0",
+                        "tertiary-fixed-dim": "#b4c6f3",
+                        "outline": "#737685",
+                        "surface-bright": "#f8f9fb",
+                        "on-tertiary-fixed": "#051a3e",
+                        "tertiary-fixed": "#d8e2ff",
+                        "tertiary-container": "#495a81",
+                        "secondary-container": "#feaa00",
+                        "inverse-surface": "#2e3132",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffddb3",
+                        "on-surface-variant": "#434654",
+                        "primary-container": "#0052cc",
+                        "secondary": "#825500",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-tertiary-container": "#c1d2ff",
+                        "tertiary": "#314368",
+                        "background": "#f8f9fb",
+                        "on-primary-fixed": "#001848",
+                        "surface-container": "#edeef0",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f3f4f6",
+                        "on-surface": "#191c1e",
+                        "on-background": "#191c1e",
+                        "on-secondary-fixed": "#291800",
+                        "on-secondary-container": "#684300",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-secondary-fixed-variant": "#624000",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e7e8ea",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#003d9b",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-tertiary-fixed-variant": "#35466c",
+                        "surface-variant": "#e1e2e4",
+                        "outline-variant": "#c3c6d6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "container-padding-mobile": "16px",
+                        "unit": "8px",
+                        "stack-md": "16px",
+                        "gutter": "16px",
+                        "container-padding-desktop": "24px",
+                        "section-gap": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fb; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .map-gradient { background: linear-gradient(to bottom, rgba(248, 249, 251, 0.9) 0%, rgba(248, 249, 251, 0) 20%, rgba(248, 249, 251, 0) 80%, rgba(248, 249, 251, 1) 100%); }
+        .glass-panel { backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.85); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="overflow-hidden">
+<!-- TopAppBar Execution -->
+<header class="flex justify-between items-center w-full px-container-padding-mobile md:px-container-padding-desktop sticky top-0 z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline h-16">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed p-2 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-full" data-icon="menu">menu</button>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">TravelEase</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border-2 border-primary">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a corporate executive with a friendly expression. The lighting is soft and natural, emphasizing a high-end, modern light-mode aesthetic. The background is a clean, out-of-focus office environment with subtle cool blue and white tones that match the TravelEase brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAZKWhP3svfU1kgheCuU708PQYm51JLksPj2pAkIzRmDnQqOrgirq_5niUwXN-5Vxhwj7_zk5PSSmmQLGWHoxSBhwuSser42BUJF0YNNIjRlO_bIplqssaWj6dY2_sbDkegio49PtiNeLVOw3-CI9UG_rsajjd_KTTUDozgQUTijIe4jVEFgPty3KSpuyin7is9t4KtdOqr0inT-g5vfPK1PCDxjUhX3Hgw5x8L5hSMvnoRzKN_AJsan4vJ_VWFcqT_fWZUl01IQ"/>
+</div>
+</div>
+</header>
+<main class="relative h-[calc(100vh-64px)] w-full overflow-hidden">
+<!-- Full Screen Map Interface -->
+<div class="absolute inset-0 z-0">
+<img alt="Live Map" class="w-full h-full object-cover grayscale-[20%] opacity-90" data-alt="A high-resolution overhead map-style satellite view of a modern metropolitan city with clean, organized streets and lush green parks. The lighting is bright and sunny, creating a high-contrast, premium look with warm golden-hour tones. The visual style is crisp and professional, serving as a functional background for an high-end travel application interface." data-location="San Francisco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCois-cFvNN91xzwOJjAnOPceE2DfV2XkwjiXGVQKle600PgexWEwV-BADmaAU4Om-beJa43PuDLtW88HNOtBs53T1BS5lnbkuju3X_kvdBsmjgrgju0u7FnRIwEVYCHamIRCEj2ptKpNyfbT9AEB75PGkWFP5u7v7cZXkFifJvqokeabnvckTkwR9SdfXIFaZGME2pvHKEBBVlCgpMQWDdABLXBrvKl83aXXHx-kJsAhWXoqptYZg1gRv27W-mu3rnSY8l8wmYZg"/>
+<div class="absolute inset-0 map-gradient pointer-events-none"></div>
+</div>
+<!-- Custom Car Marker (Animated) -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center">
+<div class="relative">
+<!-- Ping Effect -->
+<div class="absolute inset-0 animate-ping rounded-full bg-primary/30 w-16 h-16 -left-4 -top-4"></div>
+<!-- Car Marker Container -->
+<div class="bg-primary text-on-primary w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-4 border-surface ring-4 ring-primary/20">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<!-- Direction Indicator -->
+<div class="absolute -top-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[8px] border-b-primary"></div>
+</div>
+<div class="mt-stack-sm bg-surface-container-lowest px-3 py-1 rounded-full shadow-sm border border-outline-variant">
+<span class="text-label-sm font-label-sm text-primary">Toyota Camry • ABC-123</span>
+</div>
+</div>
+<!-- Top Floating Overlay: ETA & Status -->
+<div class="absolute top-stack-md left-container-padding-mobile right-container-padding-mobile md:left-1/2 md:-translate-x-1/2 md:w-full md:max-w-md z-20">
+<div class="glass-panel p-4 rounded-xl shadow-lg border border-white/50 flex items-center justify-between">
+<div class="flex items-center gap-stack-md">
+<div class="bg-primary-container text-on-primary-container p-3 rounded-lg">
+<span class="material-symbols-outlined text-3xl">timer</span>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Estimated Arrival</p>
+<p class="text-headline-sm font-headline-sm text-on-surface">12 mins <span class="text-body-sm font-body-sm text-outline">(2.4 miles)</span></p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary-container text-on-secondary-container">
+                        On Time
+                    </span>
+</div>
+</div>
+</div>
+<!-- Bottom Detail Panel (Glassmorphism) -->
+<div class="absolute bottom-20 md:bottom-24 left-container-padding-mobile right-container-padding-mobile md:left-1/2 md:-translate-x-1/2 md:w-full md:max-w-2xl z-20">
+<div class="glass-panel rounded-2xl shadow-2xl border border-white/40 overflow-hidden">
+<!-- Driver Section -->
+<div class="p-stack-md md:p-stack-lg border-b border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-stack-md">
+<div class="relative">
+<img alt="Driver" class="w-16 h-16 rounded-full object-cover border-2 border-primary shadow-sm" data-alt="A professional portrait of a male driver in a clean, high-end uniform. He is smiling warmly, conveying trust and reliability. The lighting is bright and premium, with a soft-focus background of a luxury car interior. The color palette is composed of neutrals and Travel Blue accents, matching the overall modern utility brand style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuTQfwTYFFWp2iTDTPhoO590xt1pcekloInX-lMo_CAtKIeWfrblR8NSPp3ZyWIryoFapYIxEENKDcNb0640I6z_LJyCJDEM_Ro-MIIlV5LyTenvLG3dKl3dt2jsIaV5JsLJQzIlf9eVSsRQSpXh913XZ-z3BPRdL40r4ttjphNBk-Zlk0z-_O_zhXKEVDkUNfD116iC0uImK4gCm2gQ1z5IFn7RBWZPjl22jn6CFB3GmwYHI7_suUZ9sOgwvXK1_2lPJkGrWrXA"/>
+<div class="absolute bottom-0 right-0 bg-secondary-container rounded-full p-1 border-2 border-white">
+<span class="material-symbols-outlined text-[12px] text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Michael Stevenson</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">verified</span> 4.9 Rating • 1,240 trips
+                            </p>
+</div>
+</div>
+<div class="flex gap-stack-sm">
+<button class="w-12 h-12 rounded-full bg-surface-container-high hover:bg-surface-container-highest transition-colors flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined">call</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-primary hover:opacity-90 transition-opacity flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+</div>
+</div>
+<!-- Trip Details Bento Style -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-stack-sm p-stack-md md:p-stack-lg bg-surface-container-low/50">
+<div class="flex flex-col gap-1">
+<span class="text-label-sm font-label-sm text-outline">CAR MODEL</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface">Toyota Camry</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-label-sm font-label-sm text-outline">LICENSE</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface">ABC-123</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-label-sm font-label-sm text-outline">DESTINATION</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface truncate">SFO Terminal 3</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-label-sm font-label-sm text-outline">PAYMENT</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface">•••• 4242</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Execution -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface-container-lowest dark:bg-inverse-surface shadow-lg rounded-t-xl h-20">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer group">
+<span class="material-symbols-outlined mb-1 group-active:scale-95 transition-transform" data-icon="explore">explore</span>
+<span class="text-label-sm font-label-sm">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer group">
+<span class="material-symbols-outlined mb-1 group-active:scale-95 transition-transform" data-icon="directions_car">directions_car</span>
+<span class="text-label-sm font-label-sm">Bookings</span>
+</div>
+<!-- Active Tab: Track -->
+<div class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1.5 transition-all scale-100 group cursor-pointer shadow-md">
+<span class="material-symbols-outlined mb-0.5 group-active:scale-95 transition-transform" data-icon="map" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="text-label-sm font-label-sm">Track</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer group">
+<span class="material-symbols-outlined mb-1 group-active:scale-95 transition-transform" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction for car marker movement simulation
+        document.addEventListener('DOMContentLoaded', () => {
+            const carMarker = document.querySelector('.animate-ping').parentElement.parentElement;
+            let angle = 0;
+            
+            function simulateMovement() {
+                angle += 0.002;
+                const radiusX = 10;
+                const radiusY = 5;
+                const x = Math.cos(angle) * radiusX;
+                const y = Math.sin(angle) * radiusY;
+                
+                carMarker.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+                requestAnimationFrame(simulateMovement);
+            }
+            
+            simulateMovement();
+        });
+    </script>
+</body></html>

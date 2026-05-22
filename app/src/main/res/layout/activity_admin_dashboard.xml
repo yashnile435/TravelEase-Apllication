@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/android:windowBackground">
+
+    <!-- Header Toolbar -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/adminToolbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="2dp"
+        app:strokeWidth="0dp"
+        app:cardBackgroundColor="?attr/colorSurface">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <ImageView
+                android:id="@+id/btnAdminBack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_arrow_back"
+                android:layout_centerVertical="true"
+                app:tint="?android:attr/textColorPrimary"
+                android:contentDescription="@null"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Admin Management"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="?android:attr/textColorPrimary"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Main List of current fleet -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/adminVehiclesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/adminToolbarLayout"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:paddingBottom="80dp" />
+
+    <!-- Floating Action Button for Adding new models -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addVehicleFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="24dp"
+        android:src="@drawable/ic_add"
+        app:tint="@color/white"
+        app:fabSize="normal"
+        android:backgroundTint="@color/primary_blue"
+        android:contentDescription="@null" />
+</RelativeLayout>
