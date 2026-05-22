@@ -10,6 +10,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
@@ -101,6 +103,18 @@ public class FirebaseHelper {
         }
     }
 
+    // Check if email or mobile number already exists in users collection (for signup validation)
+    public Task<List<QuerySnapshot>> checkEmailOrPhoneExists(String email, String phoneNumber) {
+        Task<QuerySnapshot> emailQuery = getUsersCollection().whereEqualTo("email", email).get();
+        Task<QuerySnapshot> phoneQuery = getUsersCollection().whereEqualTo("phoneNumber", phoneNumber).get();
+        return Tasks.whenAll(emailQuery, phoneQuery).continueWith(task -> {
+            List<QuerySnapshot> list = new ArrayList<>();
+            list.add(emailQuery.getResult());
+            list.add(phoneQuery.getResult());
+            return list;
+        });
+    }
+
     // Save profile details to Firestore - fully customized with all required fields (defaulting to customer role)
     public Task<Void> registerNewUser(String userId, String username, String email, String phoneNumber) {
         return registerNewUser(userId, username, email, phoneNumber, "customer");
@@ -123,7 +137,7 @@ public class FirebaseHelper {
                 now, // lastLogin
                 "Active" // accountStatus
         );
-        return getUsersCollection().document(userId).set(user);
+        return getUsersCollection().document(userId).set(user, SetOptions.merge());
     }
 
     // Handles Google Sign-In user checking, creating, and updating lastLogin (retains existing role)
@@ -131,10 +145,11 @@ public class FirebaseHelper {
         long now = System.currentTimeMillis();
         return getUsersCollection().document(userId).get().continueWithTask(task -> {
             if (task.isSuccessful() && task.getResult() != null && task.getResult().exists()) {
-                // User already exists, only update lastLogin and updatedAt (preserves role)
+                // User already exists, only update lastLogin, updatedAt, and profilePhoto (preserves role)
                 return getUsersCollection().document(userId).update(
                         "lastLogin", now,
-                        "updatedAt", now
+                        "updatedAt", now,
+                        "profilePhoto", photoUrl != null ? photoUrl : ""
                 );
             } else {
                 // User does not exist, create a new document
@@ -152,7 +167,7 @@ public class FirebaseHelper {
                         now, // lastLogin
                         "Active" // accountStatus
                 );
-                return getUsersCollection().document(userId).set(user);
+                return getUsersCollection().document(userId).set(user, SetOptions.merge());
             }
         });
     }
@@ -183,7 +198,7 @@ public class FirebaseHelper {
                         now, // lastLogin
                         "Active" // accountStatus
                 );
-                return getUsersCollection().document(userId).set(user);
+                return getUsersCollection().document(userId).set(user, SetOptions.merge());
             }
         });
     }
@@ -205,7 +220,7 @@ public class FirebaseHelper {
                 now, // lastLogin
                 "Active" // accountStatus
         );
-        return getUsersCollection().document(userId).set(user);
+        return getUsersCollection().document(userId).set(user, SetOptions.merge());
     }
 
     // Backwards-compatible overload for legacy screen profile saves

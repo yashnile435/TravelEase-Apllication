@@ -142,54 +142,89 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Show premium progress overlay
         binding.loadingOverlay.setVisibility(View.VISIBLE);
-        binding.loadingText.setText("Creating your elite profile...");
+        binding.loadingText.setText("Verifying email and mobile number...");
         binding.registerBtn.setEnabled(false);
 
-        firebaseHelper.getAuth().createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful() && firebaseHelper.getAuth().getCurrentUser() != null) {
-                        String uid = firebaseHelper.getAuth().getCurrentUser().getUid();
-                        
-                        // Save user details with phone number to Firestore "users" collection
-                        firebaseHelper.registerNewUser(uid, name, email, phone)
-                                .addOnCompleteListener(dbTask -> {
+        // Firestore Duplicate Check
+        firebaseHelper.checkEmailOrPhoneExists(email, phone)
+                .addOnCompleteListener(checkTask -> {
+                    if (!checkTask.isSuccessful()) {
+                        binding.registerBtn.setEnabled(true);
+                        binding.loadingOverlay.setVisibility(View.GONE);
+                        Toast.makeText(RegisterActivity.this, "Database validation failed. Please try again.", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    com.google.firebase.firestore.QuerySnapshot emailResult = checkTask.getResult().get(0);
+                    com.google.firebase.firestore.QuerySnapshot phoneResult = checkTask.getResult().get(1);
+
+                    boolean emailDuplicate = !emailResult.isEmpty();
+                    boolean phoneDuplicate = !phoneResult.isEmpty();
+
+                    if (emailDuplicate) {
+                        binding.registerBtn.setEnabled(true);
+                        binding.loadingOverlay.setVisibility(View.GONE);
+                        binding.emailInputLayout.setError("Email already registered");
+                        Toast.makeText(RegisterActivity.this, "Email already registered", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    if (phoneDuplicate) {
+                        binding.registerBtn.setEnabled(true);
+                        binding.loadingOverlay.setVisibility(View.GONE);
+                        binding.phoneInputLayout.setError("Mobile number already in use");
+                        Toast.makeText(RegisterActivity.this, "Mobile number already in use", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    // No duplicates in Firestore, proceed with Firebase Auth creation
+                    binding.loadingText.setText("Creating your elite profile...");
+                    firebaseHelper.getAuth().createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(task -> {
+                                if (task.isSuccessful() && firebaseHelper.getAuth().getCurrentUser() != null) {
+                                    String uid = firebaseHelper.getAuth().getCurrentUser().getUid();
+                                    
+                                    // Save user details with phone number to Firestore "users" collection (uses SetOptions.merge internally)
+                                    firebaseHelper.registerNewUser(uid, name, email, phone)
+                                            .addOnCompleteListener(dbTask -> {
+                                                binding.registerBtn.setEnabled(true);
+                                                binding.loadingOverlay.setVisibility(View.GONE);
+                                                
+                                                if (dbTask.isSuccessful()) {
+                                                    Toast.makeText(RegisterActivity.this, "Account created successfully!", Toast.LENGTH_SHORT).show();
+                                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                                    startActivity(intent);
+                                                    finishAffinity(); // Clear backstack entirely
+                                                } else {
+                                                    String errorMsg = dbTask.getException() != null ? dbTask.getException().getMessage() : "Unknown Firestore error";
+                                                    Toast.makeText(RegisterActivity.this, "Firestore Error: " + errorMsg, Toast.LENGTH_LONG).show();
+                                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                                    startActivity(intent);
+                                                    finishAffinity();
+                                                }
+                                            });
+                                } else {
                                     binding.registerBtn.setEnabled(true);
                                     binding.loadingOverlay.setVisibility(View.GONE);
                                     
-                                    if (dbTask.isSuccessful()) {
-                                        Toast.makeText(RegisterActivity.this, "Account created successfully!", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                                        startActivity(intent);
-                                        finishAffinity(); // Clear backstack entirely
+                                    Exception exception = task.getException();
+                                    String friendlyMsg = "Registration Failed: ";
+                                    
+                                    if (exception instanceof FirebaseAuthUserCollisionException) {
+                                        friendlyMsg += "An account already exists with this email address.";
+                                    } else if (exception instanceof FirebaseAuthWeakPasswordException) {
+                                        friendlyMsg += "The password is too weak.";
+                                    } else if (exception instanceof FirebaseAuthInvalidCredentialsException) {
+                                        friendlyMsg += "Invalid email format.";
+                                    } else if (exception instanceof FirebaseNetworkException) {
+                                        friendlyMsg += "Network error. Please check your connection.";
                                     } else {
-                                        String errorMsg = dbTask.getException() != null ? dbTask.getException().getMessage() : "Unknown Firestore error";
-                                        Toast.makeText(RegisterActivity.this, "Firestore Error: " + errorMsg, Toast.LENGTH_LONG).show();
-                                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                                        startActivity(intent);
-                                        finishAffinity();
+                                        friendlyMsg += exception != null ? exception.getMessage() : getString(R.string.err_generic);
                                     }
-                                });
-                    } else {
-                        binding.registerBtn.setEnabled(true);
-                        binding.loadingOverlay.setVisibility(View.GONE);
-                        
-                        Exception exception = task.getException();
-                        String friendlyMsg = "Registration Failed: ";
-                        
-                        if (exception instanceof FirebaseAuthUserCollisionException) {
-                            friendlyMsg += "An account already exists with this email address.";
-                        } else if (exception instanceof FirebaseAuthWeakPasswordException) {
-                            friendlyMsg += "The password is too weak.";
-                        } else if (exception instanceof FirebaseAuthInvalidCredentialsException) {
-                            friendlyMsg += "Invalid email format.";
-                        } else if (exception instanceof FirebaseNetworkException) {
-                            friendlyMsg += "Network error. Please check your connection.";
-                        } else {
-                            friendlyMsg += exception != null ? exception.getMessage() : getString(R.string.err_generic);
-                        }
-                        
-                        Toast.makeText(RegisterActivity.this, friendlyMsg, Toast.LENGTH_LONG).show();
-                    }
+                                    
+                                    Toast.makeText(RegisterActivity.this, friendlyMsg, Toast.LENGTH_LONG).show();
+                                }
+                            });
                 });
     }
 }
